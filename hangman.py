@@ -29,10 +29,15 @@ while play_again:
 
     while turns < 15 and not won: # counts turns
         guess = input('guess: ')
+
+        if guess in word_bank or guess in it: # catches if user already guessed that letter
+            print("you've already guessed that letter so this turn doesn't count")
+            turns -= 1
+
         for count, letter in enumerate(word): # goes through each letter in the word
             if guess == letter: # checks if the input is the same as the letter being tested
                 it[count] = letter # updates list letter based on list index counter
-            
+
         turns += 1
         print(f'turns completed: {turns}/15')
         if guess not in word and guess not in word_bank:
