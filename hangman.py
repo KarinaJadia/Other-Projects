@@ -1,6 +1,6 @@
 import random
 
-def print_list(lis, spaces): # prints out the list aesthetically
+def print_list(lis, spaces): # prints out the list aesthetically with or without spaces
     if spaces:
         for i in lis:
             print(i, end=' ')
@@ -14,8 +14,8 @@ play_again = True
 print("Welcome to the word guessing game! To play, input a letter and hit enter.\n- If the letter is correct, it will show up on the spot(s) it's correct in. If it's wrong, it'll let you know.\n- If you put a letter you've already guessed, that turn won't count.")
 while play_again:
 
-    numero = random.randrange(0, 17)
-    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior']
+    numero = random.randrange(0, 19)
+    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior', 'oxidation', 'cornerstone']
     word = words[numero]
     it = [] # this list does the underscore thing
     word_bank = [] # keeps track of incorrect letters
