@@ -41,7 +41,8 @@ while play_again:
 
         turns += 1
         print(f'turns completed: {turns}/15')
-        if guess not in word and guess not in word_bank:
+
+        if guess not in word and guess not in word_bank: # kees track of whether the letter has been guessed before
             word_bank.append(guess)
         print(f'incorrect letters guessed: ',end='')
         print_list(word_bank, True)
