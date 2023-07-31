@@ -14,14 +14,14 @@ play_again = True
 print("Welcome to the word guessing game! To play, input a letter and hit enter.\n- If the letter is correct. If it's wrong, it'll let you know.\n- If you put a letter you've already guessed, that turn won't count.")
 while play_again:
 
-    numero = random.randrange(0, 19)
-    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior', 'oxidation', 'cornerstone']
+    numero = random.randrange(0, 20)
+    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior', 'oxidation', 'cornerstone', 'braniac']
     word = words[numero]
     hangman = [] # this list does the underscore thing
     word_bank = [] # keeps track of incorrect letters
     turns = 0 # keeps track of turns
     won = False # keeps track of whether the user has won
-    attempts = 15
+    attempts = 1
 
     for i in range(len(word)): # sets up the underscores in the list
         hangman.append('_')
