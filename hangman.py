@@ -13,7 +13,7 @@ def print_list(lis, spaces): # prints out the list aesthetically
 play_again = True
 while play_again:
 
-    numero = random.randrange(0, 18)
+    numero = random.randrange(0, 17)
     words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior']
     word = words[numero]
     it = [] # this list does the underscore thing
