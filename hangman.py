@@ -21,14 +21,15 @@ while play_again:
     word_bank = [] # keeps track of incorrect letters
     turns = 0 # keeps track of turns
     won = False # keeps track of whether the user has won
+    attempts = 15
 
     for i in range(len(word)): # sets up the underscores in the list
         hangman.append('_')
 
-    print('You have 15 turns to find the word. Good luck!')
+    print(f'You have {attempts} turns to find the word. Good luck!')
     print(f'Your word is {len(word)} letters long.\n')
 
-    while turns < 15 and not won: # counts turns
+    while turns < attempts and not won: # counts turns
         guess = input('guess: ')
 
         if guess in word_bank or guess in hangman: # catches if user already guessed that letter
@@ -44,7 +45,7 @@ while play_again:
                 hangman[count] = letter # updates list letter based on list index counter
 
         turns += 1
-        print(f'turns completed: {turns}/15')
+        print(f'turns completed: {turns}/{attempts}')
 
         if guess not in word and guess not in word_bank: # kees track of whether the letter has been guessed before
             word_bank.append(guess)
