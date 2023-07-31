@@ -1,3 +1,40 @@
+'''
+
+
+
+
+Welcome to my word guessing game! It's a lot like hangman, but I only have a word bank of ten words,
+so it'll get old fast. Maybe one day I'll hook it up to a dictionary, but today is not that day.
+
+Have fun!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
 import random
 
 def print_list(lis, spaces): # prints out the list aesthetically
