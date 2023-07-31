@@ -19,8 +19,8 @@ while play_again:
     word = words[numero]
     it = [] # this list does the underscore thing
     word_bank = [] # keeps track of incorrect letters
-    turns = 0
-    won = False
+    turns = 0 # keeps track of turns
+    won = False # keeps track of whether the user has won
 
     for i in range(len(word)): # sets up the underscores in the list
         it.append('_')
@@ -51,9 +51,9 @@ while play_again:
 
         print_list(it, False)
 
-    if won:
+    if won: # if the user guessed correctly, tell them they won
         print('Congratulations! You guessed the correct word!')
-    else:
+    else: # else tell them the right word
         print(f'Out of turns! The word was {word}.')
 
     print('Play again? Type [y] or [n].')
