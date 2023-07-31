@@ -11,6 +11,7 @@ def print_list(lis, spaces): # prints out the list aesthetically
         print('\n')
 
 play_again = True
+print("Welcome to the word guessing game! To play, input a letter and hit enter.\n- If the letter is correct, it will show up on the spot(s) it's correct in. If it's wrong, it'll let you know.\n- If you put a letter you've already guessed, that turn won't count.")
 while play_again:
 
     numero = random.randrange(0, 17)
