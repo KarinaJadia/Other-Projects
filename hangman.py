@@ -13,8 +13,8 @@ def print_list(lis, spaces): # prints out the list aesthetically
 play_again = True
 while play_again:
 
-    numero = random.randrange(1, 9)
-    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering']
+    numero = random.randrange(1, 10)
+    words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable']
     word = words[numero]
     it = [] # this list does the underscore thing
     word_bank = [] # keeps track of incorrect letters
