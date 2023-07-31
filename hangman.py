@@ -40,7 +40,7 @@ while play_again:
         print(f'incorrect letters guessed: ',end='')
         print_list(word_bank, True)
 
-        if '_' not in it:
+        if '_' not in it: # checks if the full word has been guessed and if so, breaks while loop
             won = True
 
         print_list(it, False)
