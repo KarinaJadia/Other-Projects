@@ -26,13 +26,17 @@ while play_again:
         hangman.append('_')
 
     print('You have 15 turns to find the word. Good luck!')
-    print_list(hangman, False)
+    print(f'Your word is {len(word)} letters long.\n')
 
     while turns < 15 and not won: # counts turns
         guess = input('guess: ')
 
         if guess in word_bank or guess in hangman: # catches if user already guessed that letter
             print("you've already guessed that letter so this turn doesn't count")
+            turns -= 1
+        
+        if guess == '': # catches if user inputs a blank guess
+            print("blank guess so this turn doesn't count")
             turns -= 1
 
         for count, letter in enumerate(word): # goes through each letter in the word
