@@ -21,7 +21,7 @@ while play_again:
     word_bank = [] # keeps track of incorrect letters
     turns = 0 # keeps track of turns
     won = False # keeps track of whether the user has won
-    attempts = 1
+    attempts = 15
 
     for i in range(len(word)): # sets up the underscores in the list
         hangman.append('_')
