@@ -1,3 +1,5 @@
+''' this is a simple hangman-esque game that makes the user guess a word letter by letter within a certain amount of turns '''
+
 import random
 
 def print_list(lis, spaces): # prints out the list aesthetically with or without spaces
