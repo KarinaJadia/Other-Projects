@@ -17,8 +17,8 @@ while play_again:
     numero = random.randrange(0, 20)
     words = ['elephant', 'panther', 'strawberry', 'cicada', 'halogen', 'printer', 'asphalt', 'permutation', 'lingering', 'probable', 'additive', 'insignia', 'duplicate', 'adamant', 'pliable', 'repository', 'superior', 'oxidation', 'cornerstone', 'braniac']
     word = words[numero]
-    hangman = [] # this list does the underscore thing
-    word_bank = [] # keeps track of incorrect letters
+    hangman = [] # keeps track of correctly guessed letters
+    word_bank = [] # keeps track of incorrectly guessed letters
     turns = 0 # keeps track of turns
     won = False # keeps track of whether the user has won
     attempts = 15
@@ -29,7 +29,7 @@ while play_again:
     print(f'You have {attempts} turns to find the word. Good luck!')
     print(f'Your word is {len(word)} letters long.\n')
 
-    while turns < attempts and not won: # counts turns
+    while turns < attempts and not won: # loops as long as user hasn't won and there are turns left
         guess = input('guess: ')
 
         if guess in word_bank or guess in hangman: # catches if user already guessed that letter
