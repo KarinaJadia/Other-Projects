@@ -29,7 +29,7 @@ while play_again:
     for i in range(len(word)): # sets up the underscores in the list
         hangman.append('_')
 
-    print(f'You have {attempts} turns to find the word. Good luck!')
+    print(f'\nYou have {attempts} turns to find the word. Good luck!')
     print(f'Your word is {len(word)} letters long.\n')
 
     while turns < attempts and not won: # loops as long as user hasn't won and there are turns left
@@ -68,9 +68,8 @@ while play_again:
         print(f'Out of turns! The word was {word}.')
         losses += 1
 
-    print(f'You have won {wins} times and lost {losses} times.') # prints wins and losses
-    print('Play again? Type [y] or [n].') # maintains the loop
-    yes = input()
+    print(f'\nYou have won {wins} times and lost {losses} times.') # prints wins and losses
+    yes = input('Play again? Type [y] or [n]: ') # maintains loop
     if yes == 'y':
         play_again = True
     else:
