@@ -10,7 +10,10 @@ def print_list(lis, spaces): # prints out the list aesthetically with or without
             print(i, end='')
         print('\n')
 
-play_again = True
+play_again = True # maintains the loo
+wins = 0 # keeps tracks of wins
+losses = 0 # keeps track of losses
+
 print("Welcome to the word guessing game! To play, input a letter and hit enter.\n- If the letter is correct. If it's wrong, it'll let you know.\n- If you put a letter you've already guessed, that turn won't count.")
 while play_again:
 
@@ -49,7 +52,8 @@ while play_again:
 
         if guess not in word and guess not in word_bank: # kees track of whether the letter has been guessed before
             word_bank.append(guess)
-        print(f'incorrect letters guessed: ',end='')
+        
+        print(f'incorrect letters guessed: ',end='') # prints the incorrect letters bank
         print_list(word_bank, True)
 
         if '_' not in hangman: # checks if the full word has been guessed and if so, breaks loop
@@ -57,14 +61,19 @@ while play_again:
 
         print_list(hangman, False)
 
-    if won: # if the user guessed correctly, tell them they won
+    if won: # if the user guessed correctly, tells them they won and updates win
         print('Congratulations! You guessed the correct word!')
-    else: # else tell them the right word
+        wins += 1
+    else: # else tells them the right word and updates losses
         print(f'Out of turns! The word was {word}.')
+        losses += 1
 
-    print('Play again? Type [y] or [n].')
+    print(f'You have won {wins} times and lost {losses} times.') # prints wins and losses
+    print('Play again? Type [y] or [n].') # maintains the loop
     yes = input()
     if yes == 'y':
         play_again = True
     else:
         play_again = False
+
+print('Thanks for playing! I hope you had fun!')
