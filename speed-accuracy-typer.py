@@ -83,4 +83,5 @@ accuracy = (total_letters-total_mistakes)/total_letters * 100
 input(f'That took {total:.2f} seconds!\n\nhit enter to see each stat')
 input(f'- words per minute: {wpm:.2f}')
 input(f'- accuracy: {accuracy:.2f}%')
+print("That's it! I hope this was cool to see!")
 print('\n')
