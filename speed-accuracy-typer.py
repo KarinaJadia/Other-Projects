@@ -13,7 +13,7 @@ def print_pretty(list, row = None): # prints the matrix in a pretty way, mostly
                 print(list[j][i], end=' ')
             print('\n')
 
-rows = 4 # row 1 - word, row 2 - length, row 3 - incorrect letters
+rows = 5 # row 1 - word, row 2 - length, row 3 - incorrect letters
 columns = 20 # 20 words
 words = [[0 for x in range(columns)] for y in range(rows)] # initializes matrix
 '''     initializes as: 
@@ -22,7 +22,8 @@ words = [[0 for x in range(columns)] for y in range(rows)] # initializes matrix
         0  [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],      tracks the word
         1    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],      tracks length of word
         2    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],      tracks user's input
-        3    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]     tracks user's incorrect letters
+        3    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],      tracks user's incorrect letters
+        4    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]     tracks time for each word
 '''
 
 # initializes the words to type
@@ -50,13 +51,19 @@ words[0][19] = 'dropping'
 print("I'm going to time how long it takes for you to type a bunch of words and also test your accuracy. Hit enter to start. Good luck!")
 enter = input()
 
-start = time.time() # gets time at the beginning
 for i in range(len(words[0])):
     print(words[0][i])
-    words[2][i] = input()
+    s = time.time() # times user
+    words[2][i] = input() # updates matrix with user's input
+    e = time.time()
+    words[4][i] = e-s # puts time for each word in matrix
     print('\n')
-end = time.time() # gets time at the end
 
-print(f'That took {end-start:.2f} seconds!\n\nstats')
-print(f'words per minute: {len(words[0])/((end-start)/60):.2f}') # calculates words per minute
+total = 0
+for i in words[4]:
+    total += i
+
+input(f'That took {total:.2f} seconds!\n\nhit enter to see each stat')
+input(f'- words per minute: {len(words[0])/((total)/60):.2f}') # calculates words per minute
+input(f'- accuracy: ')
 print('\n')
