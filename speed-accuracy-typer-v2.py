@@ -84,9 +84,9 @@ input(f'- words per minute: {wpm:.2f}')
 input(f'- accuracy: {accuracy:.2f}%')
 
 if wpm > 40:
-    input(f'- your typing speed is {wpm-40:.2f}wpm faster than average')
+    input(f'- your typing speed is {wpm-40:.2f} words per minute faster than average')
 else:
-    input(f'- your typing speed is {40-wpm:.2f} slower than average')
+    input(f'- your typing speed is {40-wpm:.2f} words per minute slower than average')
 
 print('- words you made a mistake with: ', end='')
 for i in range(len(words[0])):
