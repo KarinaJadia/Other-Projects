@@ -88,10 +88,12 @@ if wpm > 40:
 else:
     input(f'- your typing speed is {40-wpm:.2f} words per minute slower than average')
 
-print('- words you made a mistake with: ', end='')
-for i in range(len(words[0])):
-    if not words[2][i] == 0:
-        print(words[1][i], end=' ')
+if accuracy > 100:
+    print('- words you made a mistake with: ', end='')
+    for i in range(len(words[0])):
+        if not words[2][i] == 0:
+            print(words[1][i], end=' ')
+    input()
 
 print('\n')
 print("That's it! I hope this was cool to see!")
