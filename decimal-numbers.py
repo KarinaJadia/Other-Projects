@@ -1,32 +1,44 @@
-def binary_to_decimal(b):
+def from_binary(b):
     ''' converts binary to decimal '''
     num = [*b] # splits string into characters
     num.reverse() # reverses it so it's from lowest to highest and i can work with it better
 
-    result = 0
-    for i, j in enumerate(num):
+    result = 0 # stores the final result
+
+    for i, j in enumerate(num): # the cute little algorithm i made
         j = int(j) # converts to int so i can use it
         result = result + j*(2**i) # basically takes the number (0 or 1) and multiplies it with 2 to the power of it's position
+    
     return result
 
-# tests for binary to decimal:
-# A = [0,1]
-# for i in A:
-#     for j in A:
-#         for k in A:
-#             for l in A:
-#                 st = str(i)+str(j)+str(k)+str(l)
-#                 print(f'{i}{j}{k}{l}: {binary_to_decimal(st)}')
+
+def to_binary(b):
+    ''' converts decimal to binary '''
+    res = [] # stores the result as a list
+    b = int(b) # converts input to int
+
+    for i in range(4): # loops 4 times and does the cute little algorithm i made
+        x = b % 2
+        b //= 2
+        res.append(x)
+
+    res.reverse() # reverses list so the binary is right and converts to string for aesthetic
+    result = ''
+    for i in res:
+        result = result + str(i)
+
+    return result
+
 
 stay = True
 while stay:
-    where = input('Welcome to this! Are you converting a number to or from decimal system? [to] or [from]: ')
+    where = input('Welcome to this! Are you converting a number to or from 4 bit/hexadecimal? [to] or [from]: ')
 
     if where == 'to':
         conversion = input('Excellent! Now are you converting to binary 4 bit or hexadecimal? [b] or [h]: ')
         if conversion == 'b':
-            inp = input('input number: ')
-            print(f'result: {binary_to_decimal(inp)}')
+            inp = input('input number (between 0-15): ')
+            print(f'result: {to_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
             pass
@@ -38,7 +50,7 @@ while stay:
         conversion = input('Excellent! Now are you converting from binary 4 bit or hexadecimal? [b] or [h]: ')
         if conversion == 'b':
             inp = input('input number: ')
-            pass
+            print(f'result: {from_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
             pass
