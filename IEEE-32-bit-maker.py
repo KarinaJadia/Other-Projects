@@ -82,7 +82,7 @@ while again:
     total = float(tot) # this will store scientific notation version of tot
 
     exp = 0 # counts the exponent for the scientific notation representation
-    places = len(str(total)) # this is to keep track of how many decimals to do
+    places = len(str(total)) # this is to keep track of how many decimals to show since the loop adds a lot of extra 0s
     while total > 10:
         exp += 1
         total /= 10
@@ -90,7 +90,7 @@ while again:
     total = str(total)[0:places] # this makes sure it doesn't add extra zeroes after moving the decimal
 
     exp += 127 # makes it precise
-    bi_dec = to_binary(exp) # makes the exponent
+    bi_dec = to_binary(exp) # makes the binary of the exponent
 
     print(f'\n{to_convert} in binary: {tot}')
     print(f'signed bit (1 bit): {signed_bit}')
