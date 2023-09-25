@@ -7,3 +7,5 @@ speed-accuracy-typer.py - Gets the user to type words as fast as possible and ca
 speed-accuracy-typer-v2.py - Basically a more accurate version of the speed-accuracy-typer.py, but with more accurate results. It doesn't use the matrix as heavily and is literally only for fun.
 
 decimal-numbers.py - Takes user input and either converts to or from binary or hexadecimal depending on which they select, using my little algorithm. Uses lists and a little math.
+
+IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit recision floating point format. Can only handle decimals. A lot of converting to string and float and int and back to make it work and look pretty.

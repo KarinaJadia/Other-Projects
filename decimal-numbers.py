@@ -17,7 +17,7 @@ def to_binary(b):
     res = [] # stores the result as a list
     b = int(b) # converts input to int
 
-    for i in range(4): # loops 4 times and does the cute little algorithm i made
+    while b != 0: # loops and does the cute little algorithm i made
         x = b % 2
         b //= 2
         res.append(x)
@@ -28,6 +28,12 @@ def to_binary(b):
         result = result + str(i)
 
     return result
+
+
+def to_hex(h):
+    ''' converts decimal to hexadecimal '''
+    res = []
+    h = int(h)
 
 
 stay = True
@@ -41,10 +47,9 @@ while stay:
             print(f'result: {to_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
-            pass
+            print(f'result: {to_hex(inp)}')
         else:
             print("Sorry, I don't know what you're saying.")
-            pass
 
     elif where == 'from':
         conversion = input('Excellent! Now are you converting from binary 4 bit or hexadecimal? [b] or [h]: ')
@@ -53,10 +58,8 @@ while stay:
             print(f'result: {from_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
-            pass
         else:
             print("Sorry, I don't know what you're saying.")
-            pass
 
     else:
         print("Sorry, I don't know what you're saying.")
