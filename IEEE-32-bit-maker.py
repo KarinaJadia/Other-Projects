@@ -74,6 +74,7 @@ while again:
     if pre_dec < 0: # sets up the first bit
         signed_bit = 1
         pre_dec *= -1
+        to_convert = to_convert[1:]
 
     main_bi = to_binary(pre_dec)
     dec_bi = dec_to_bi(post_dec)
@@ -99,7 +100,7 @@ while again:
     while len(mantissa) < 23: # adds zero to the rest of the mantissa to make it 23 bits
         mantissa = mantissa + '0'
     print(f'mantissa (23 bits): {mantissa}')
-    print(f'all together: {signed_bit} {bi_dec} {mantissa}\n')
+    print(f'all together ({len(str(signed_bit)) + len(bi_dec) + len(mantissa)} bits): {signed_bit} {bi_dec} {mantissa}\n')
 
     ag = input('To do this again, type [y]: ')
     if ag != 'y':
