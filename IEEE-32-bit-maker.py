@@ -1,5 +1,7 @@
 ''' converts number to IEEE 754 32-bit precision floating point format'''
 
+# the functions that help
+
 def to_binary(b):
     ''' converts decimal to binary '''
     res = [] # stores the result as a list
@@ -17,8 +19,9 @@ def to_binary(b):
 
     return result
 
+
 def dec_to_bi(d):
-    ''' converts float to binary '''
+    ''' converts the decimal part of the input to binary'''
     res = [] # stores result as list
 
     while d != 1.0: # loops and multiplies for binary decimal conversion
@@ -33,14 +36,21 @@ def dec_to_bi(d):
 
     return result
 
+
 # start of main code
+
 again = True
 while again:
 
     to_convert = input('Number to convert: ')
-    if '.' not in to_convert:
+
+    if '.' not in to_convert: # catches if user enters an int
         while '.' not in to_convert:
              to_convert = input('Please type a number with a decimal: ')
+
+    if to_convert[-2:] == '.0': # catches if user cheats and enters an int disguised as a double
+        while to_convert[-2:] == '.0':
+            to_convert = input('Nope, decimal must be a real value: ')
 
     signed_bit = 0 # first bit
     exponent = 0 # next eight bits
@@ -79,14 +89,14 @@ while again:
 
     total = str(total)[0:places] # this makes sure it doesn't add extra zeroes after moving the decimal
 
-    exp += 127
+    exp += 127 # makes it precise
     bi_dec = to_binary(exp) # makes the exponent
 
     print(f'\n{to_convert} in binary: {tot}')
     print(f'signed bit (1 bit): {signed_bit}')
     print(f'exponent (8 bits): {bi_dec}')
     mantissa = total[2:] # splits the binary into mantissa
-    while len(mantissa) < 23:
+    while len(mantissa) < 23: # adds zero to the rest of the mantissa to make it 23 bits
         mantissa = mantissa + '0'
     print(f'mantissa (23 bits): {mantissa}')
     print(f'all together: {signed_bit} {bi_dec} {mantissa}\n')
