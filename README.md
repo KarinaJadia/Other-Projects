@@ -9,3 +9,5 @@ speed-accuracy-typer-v2.py - Basically a more accurate version of the speed-accu
 decimal-numbers.py - Takes user input and either converts to or from binary or hexadecimal depending on which they select, using my little algorithm. Uses lists and a little math.
 
 IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit recision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
+
+renamer.py & renamed.py - This is a silly little project inspired by something I saw on Instagram. I just wanted to see how funny it would be to make a project using the modern lingo. More info about what the project does to come!
