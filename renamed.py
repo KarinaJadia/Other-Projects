@@ -6,9 +6,14 @@ vibe = iykyk(1, 20)
 play_again = facts_no_dollars()
 
 while vibe_check(play_again):
+    
+    guess = 0
 
     none_pizza_left_beef('go guess girl:')
-    guess = slayify(go_piss_girl())
+    try:
+        guess = slayify(go_piss_girl())
+    except:
+        none_pizza_left_beef('absolutely not, i\'m setting your guess to zero')
 
     while absolutely_not(guess, vibe):
         if peepee(guess, vibe):
