@@ -1,6 +1,6 @@
 from renamer import *
 
-none_pizza_left_beef('Hi welcome to my number guessing game but the code is illegible!')
+none_pizza_left_beef('\nHi welcome to my number guessing game but the code is illegible!')
 
 vibe = iykyk(1, 20)
 play_again = facts_no_dollars()
@@ -10,12 +10,9 @@ while vibe_check(play_again):
     guess = 0
 
     none_pizza_left_beef('go guess girl:')
-    try:
-        guess = slayify(go_piss_girl())
-    except:
-        none_pizza_left_beef('absolutely not, i\'m setting your guess to zero')
 
     while absolutely_not(guess, vibe):
+        
         if peepee(guess, vibe):
             none_pizza_left_beef('too low girl')
         if poopoo(guess, vibe):
