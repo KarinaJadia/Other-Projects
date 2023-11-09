@@ -20,14 +20,20 @@ clock = pygame.time.Clock()
 # stores the balls
 balls = []
 
+# scales the speed
+scale = 0.25
+if amount < 20:
+    scale = 1
+
 # creates the balls as a dictionary
 for _ in range(amount):
     ball = {
-        "x": WIDTH//amount * _,
+        "x": (WIDTH-20)//amount * _ + 23,
         "y": HEIGHT//2,
         "color": [255//amount * _, 0, 255],
-        "speed": [0, 1+_*0.25],
+        "speed": [0, 1+_*scale],
         "color_direction": 1,  # allows ball to change colors
+        "down": -15 # tracks direction of the trail
     }
     balls.append(ball)
 
@@ -51,12 +57,20 @@ while True:
         # the bounce
         if ball["y"] < BALL_RADIUS or ball["y"] > HEIGHT - BALL_RADIUS:
             ball["speed"][1] *= -1
+            ball["down"] *= -1
 
     # bg
     screen.fill((0, 0, 0))
 
     # makes the balls
     for ball in balls:
+
+        # trail behind the balls
+        for i in range(5, 15):
+            color = 91 - i*6
+            pygame.draw.circle(screen, (color, color, color), (int(ball["x"]), int(ball["y"]) + (i-5)*ball["down"]), 25-i)
+        
+        # actual balls
         pygame.draw.circle(screen, ball["color"], (int(ball["x"]), int(ball["y"])), BALL_RADIUS)
 
     pygame.display.update()
