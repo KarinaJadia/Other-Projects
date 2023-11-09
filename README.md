@@ -11,3 +11,5 @@ decimal-numbers.py - Takes user input and either converts to or from binary or h
 IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit recision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
 
 renamer.py & renamed.py - This is a silly little guessing game inspired by something I saw on Instagram. I just wanted to see how funny it would be to make a project using meme lingo, so for example instead of calling print() it calls none_pizza_left_beef().
+
+balls-random.py & balls-not-random.py - Just some quick bouncing ball simulators for fun. Uses pygame, but I looked up so much stuff so it was a joint effort between the internet and I.
