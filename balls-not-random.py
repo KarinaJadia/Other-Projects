@@ -29,7 +29,7 @@ if amount < 20:
 for _ in range(amount):
     ball = {
         "x": (WIDTH-20)//amount * _ + 23,
-        "y": HEIGHT//2,
+        "y": HEIGHT//2 + _*scale,
         "color": [255//amount * _, 0, 255],
         "speed": [0, 1+_*scale],
         "color_direction": 1,  # allows ball to change colors

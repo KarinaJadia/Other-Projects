@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 balls = []
 
 # player position
-user_ball = {"x": WIDTH/2, "y": HEIGHT/2, "hits":0}
+user_ball = {"x": WIDTH/2, "y": HEIGHT/2, "hits":0, "trail":[(),(),(),(),()]}
 
 # creates the balls as a dictionary
 for _ in range(amount):
