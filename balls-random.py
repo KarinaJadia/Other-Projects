@@ -26,7 +26,7 @@ for _ in range(amount):
         "x": random.randint(BALL_RADIUS, WIDTH - BALL_RADIUS),
         "y": random.randint(BALL_RADIUS, HEIGHT - BALL_RADIUS),
         "color": (random.randint(0, 255), 0, 255),
-        "speed": [random.randint(2, 7), random.randint(2, 7)],
+        "speed": [random.randint(1, 11), random.randint(1,11)],
     }
     balls.append(ball)
 
@@ -55,7 +55,7 @@ while True:
             # pythagorean theorem go brrr
             distance = ((ball1["x"] - ball2["x"]) ** 2 + (ball1["y"] - ball2["y"]) ** 2) ** 0.5
             if distance < 2 * BALL_RADIUS:
-                # reverses speed of both balls for collision
+                # reverses speed of both balls for collision                
                 ball1["speed"][0], ball2["speed"][0] = ball2["speed"][0], ball1["speed"][0]
                 ball1["speed"][1], ball2["speed"][1] = ball2["speed"][1], ball1["speed"][1]
 
