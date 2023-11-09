@@ -14,12 +14,12 @@ print(f'the more balls you hit, the larger you get. if you get hit {MAX_HITS} ti
 amount = int(input('\nhow many balls: '))
 
 pygame.init()
+font = pygame.font.Font('freesansbold.ttf', 25)
+clock = pygame.time.Clock()
 
 # window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Bouncing Balls")
-
-clock = pygame.time.Clock()
+pygame.display.set_caption("dodgeball")
 
 # stores the balls
 balls = []
@@ -45,8 +45,6 @@ for _ in range(amount):
         "hit": 0 # basically tracks if the ball's been hit like a timer so that it can blink
     }
     balls.append(ball)
-
-font = pygame.font.Font('freesansbold.ttf', 25)
 
 # main game
 while True:
