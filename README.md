@@ -12,4 +12,6 @@ IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit recis
 
 renamer.py & renamed.py - This is a silly little guessing game inspired by something I saw on Instagram. I just wanted to see how funny it would be to make a project using meme lingo, so for example instead of calling print() it calls none_pizza_left_beef().
 
-balls-random.py & balls-not-random.py - Just some quick bouncing ball simulators for fun. Uses pygame, but I looked up so much stuff so it was a joint effort between the internet and I.
+balls-random.py & balls-not-random.py - Just some quick moving circle simulators for fun. Uses pygame, but I looked up so much stuff so it was a joint effort between the internet and I.
+
+dodgeball.py - A continuation of balls-random.py where user controls a tiny red ball and tries to avoid the random bigger balls. I'm gonna try to make it with sprites later because currently the draw function is making this weird.
