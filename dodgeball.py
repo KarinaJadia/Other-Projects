@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import time
 
 # important ball variables
 WIDTH, HEIGHT = 800, 600
@@ -46,17 +47,13 @@ for _ in range(amount):
     }
     balls.append(ball)
 
+start = time.time()
 # main game
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
-    if user_ball["radius"] == MAX_HITS:
-        print('\ngame over!\n')
-        pygame.quit()
-        sys.exit()
 
     # update ball positions
     for ball in balls:
@@ -100,23 +97,35 @@ while True:
 
     # user balls to control
     keys = pygame.key.get_pressed()
-    if (keys[pygame.K_w] or keys[pygame.K_UP]) and not(user_ball["y"] < 10):
+    if (keys[pygame.K_w] or keys[pygame.K_UP]) and not(user_ball["y"] < user_ball["radius"]*0.85):
         user_ball["y"] -= 10
-    if (keys[pygame.K_s] or keys[pygame.K_DOWN]) and not(user_ball["y"] > HEIGHT-10):
+    if (keys[pygame.K_s] or keys[pygame.K_DOWN]) and not(user_ball["y"] > HEIGHT-user_ball["radius"]*0.85):
         user_ball["y"] += 10
-    if (keys[pygame.K_a] or keys[pygame.K_LEFT]) and not(user_ball["x"] < 10):
+    if (keys[pygame.K_a] or keys[pygame.K_LEFT]) and not(user_ball["x"] < user_ball["radius"]*0.85):
         user_ball["x"] -= 10
-    if (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and not(user_ball["x"] > WIDTH-10):
+    if (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and not(user_ball["x"] > WIDTH-user_ball["radius"]*0.85):
         user_ball["x"] += 10
 
     # bg
     screen.fill((0, 0, 0))
 
-    # score text
+    # score and timer text
     text = font.render(f'Hits: {user_ball["hits"]}', True, "green", "black")
+    timetaken = time.time() - start
+    timer = font.render(f'Seconds: {timetaken:.1f}', True, "green", "black")
     textRect = text.get_rect()
+    timerRect = text.get_rect()
     textRect.center = (50, 20)
+    timerRect.center = (50, 50)
     screen.blit(text, textRect)
+    screen.blit(timer, timerRect)
+
+    # when the user loses
+    if user_ball["hits"] == MAX_HITS:
+        print('\ngame over!')
+        print(f'final time: {timetaken:.1f}\n')
+        pygame.quit()
+        sys.exit()
 
     # makes the trail
     trail = update_trail((user_ball["x"], user_ball["y"]), trail)
