@@ -4,7 +4,7 @@ import random
 import time
 
 # important ball variables
-WIDTH, HEIGHT = 800, 600
+WIDTH, HEIGHT = 800, 600 # size of window
 BALL_RADIUS = 20 # radius of dodgeballs
 FPS = 60
 BLINK_TIME = 50 # how long the ball blinks for when hit
@@ -47,7 +47,7 @@ for _ in range(AMOUNT_OF_BALLS):
         "y": random.randint(BALL_RADIUS, HEIGHT - BALL_RADIUS),
         "color": (random.randint(0, 255),0,255),
         "speed": [random.randint(MIN_SPEED,MAX_SPEED), random.randint(MIN_SPEED,MAX_SPEED)],
-        "hit": 0 # basically tracks if the ball's been hit like a timer so that it can blink
+        "hit": 0, # basically tracks if the ball's been hit like a timer so that it can blink
     }
     balls.append(ball)
 
@@ -158,8 +158,8 @@ while True:
     # user's ball
     pygame.draw.circle(screen, "white", (user_ball["x"], user_ball["y"]), user_ball["radius"])
 
-    blink = ['1','2','3','4','5','6']
     # makes the dodgeballs
+    blink = ['1','2','3','4','5','6']
     for ball in balls:
         if str(ball["hit"])[-1] in blink:
             pygame.draw.circle(screen, "red", (int(ball["x"]), int(ball["y"])), BALL_RADIUS)
