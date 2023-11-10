@@ -11,6 +11,7 @@ BLINK_TIME = 50 # how long the ball blinks for when hit
 MAX_HITS = 80 # how many hits before game over
 NEW_BALL_AT = 15 # after how many seconds is a new ball added
 AMOUNT_OF_BALLS = 10
+MIN_SPEED, MAX_SPEED = 1,5
 
 print('\nwelcome to dodgeball! use the arrow keys or WASD to avoid the balls')
 print(f'the more balls you hit, the larger you get. if you get hit {MAX_HITS} times, game over!')
@@ -45,7 +46,7 @@ for _ in range(AMOUNT_OF_BALLS):
         "x": random.randint(BALL_RADIUS, WIDTH - BALL_RADIUS),
         "y": random.randint(BALL_RADIUS, HEIGHT - BALL_RADIUS),
         "color": (random.randint(0, 255),0,255),
-        "speed": [random.randint(1,5), random.randint(1,5)],
+        "speed": [random.randint(MIN_SPEED,MAX_SPEED), random.randint(MIN_SPEED,MAX_SPEED)],
         "hit": 0 # basically tracks if the ball's been hit like a timer so that it can blink
     }
     balls.append(ball)
