@@ -15,6 +15,7 @@ AMOUNT_OF_BALLS = 10
 print('\nwelcome to dodgeball! use the arrow keys or WASD to avoid the balls')
 print(f'the more balls you hit, the larger you get. if you get hit {MAX_HITS} times, game over!')
 print(f'start with {AMOUNT_OF_BALLS}, every {NEW_BALL_AT} seconds, another ball will be added')
+input('hit enter when you\'re ready to start!')
 
 pygame.init()
 font = pygame.font.Font('freesansbold.ttf', 25)
