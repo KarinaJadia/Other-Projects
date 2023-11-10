@@ -9,9 +9,11 @@ BALL_RADIUS = 20
 FPS = 60
 BLINK_TIME = 50 # how long the ball blinks for when hit
 MAX_HITS = 100
+NEW_BALL_AT = 30 # after how many seconds is a new ball added
 
 print('\nwelcome to dodgeball! use the arrow keys or WASD to avoid the balls')
 print(f'the more balls you hit, the larger you get. if you get hit {MAX_HITS} times, game over!')
+print(f'every {NEW_BALL_AT} seconds, another ball will be added')
 amount = int(input('\nhow many balls: '))
 
 pygame.init()
@@ -48,6 +50,7 @@ for _ in range(amount):
     balls.append(ball)
 
 start = time.time()
+last_add = start
 # main game
 while True:
     for event in pygame.event.get():
@@ -112,13 +115,31 @@ while True:
     # score and timer text
     text = font.render(f'Hits: {user_ball["hits"]}', True, "green", "black")
     timetaken = time.time() - start
-    timer = font.render(f'Seconds: {timetaken:.1f}', True, "green", "black")
+    timer = font.render(f'Seconds: {timetaken:.2f}', True, "green", "black")
+    ballscounter = font.render(f'Balls: {len(balls)}', True, "green", "black")
     textRect = text.get_rect()
     timerRect = text.get_rect()
+    ballRect = text.get_rect()
     textRect.center = (50, 20)
     timerRect.center = (50, 50)
+    ballRect.center = (50, 80)
     screen.blit(text, textRect)
     screen.blit(timer, timerRect)
+    screen.blit(ballscounter, ballRect)
+
+    # adds a ball after a specified amount of seconds
+    current_time = time.time()
+    elapsed = current_time - last_add
+    if elapsed > NEW_BALL_AT:
+        ball = {
+            "x": random.randint(BALL_RADIUS, WIDTH - BALL_RADIUS),
+            "y": random.randint(BALL_RADIUS, HEIGHT - BALL_RADIUS),
+            "color": (random.randint(0, 255), 0, 255),
+            "speed": [random.randint(1,5), random.randint(1,5)],
+            "hit": 0
+        }
+        balls.append(ball)
+        last_add = current_time
 
     # when the user loses
     if user_ball["hits"] == MAX_HITS:
@@ -133,9 +154,6 @@ while True:
     for i in range(len(trail)):
         pygame.draw.circle(screen, (150-i*10, 150-i*10, 150-i*10), (trail[i]), trail_radius[i])
 
-    # user's ball
-    pygame.draw.circle(screen, "red", (user_ball["x"], user_ball["y"]), user_ball["radius"])
-
     blink = ['1','2','3','4','5','6']
     # makes the dodgeballs
     for ball in balls:
@@ -145,6 +163,9 @@ while True:
             pygame.draw.circle(screen, "black", (int(ball["x"]), int(ball["y"])), BALL_RADIUS)
         else:
             pygame.draw.circle(screen, ball["color"], (int(ball["x"]), int(ball["y"])), BALL_RADIUS)
+
+    # user's ball
+    pygame.draw.circle(screen, "white", (user_ball["x"], user_ball["y"]), user_ball["radius"])
 
     pygame.display.update()
     clock.tick(FPS)
