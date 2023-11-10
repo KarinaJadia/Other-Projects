@@ -30,7 +30,7 @@ balls = []
 # player position and trail
 user_ball = {"x": WIDTH/2, "y": HEIGHT/2, "hits":0, "radius": 10}
 trail = [(WIDTH/2, HEIGHT/2) for i in range(15)]
-trail_radius = [10 for i in range(15)]
+trail_color = [(140-i*10, 140-i*10, 140-i*10) for i in range(15)]
 
 # updates the trail by adding the newest element to the beginning (this is a walmart queue)
 def update_trail(x, lis):
@@ -114,9 +114,8 @@ while True:
 
     # makes the trail
     trail = update_trail((user_ball["x"], user_ball["y"]), trail)
-    trail_radius = update_trail(user_ball["radius"], trail_radius)
-    for i in range(len(trail)):
-        pygame.draw.circle(screen, (140-i*10, 140-i*10, 140-i*10), (trail[i]), trail_radius[i]) 
+    for i in range(len(trail)-1,-1,-1):
+        pygame.draw.circle(screen, trail_color[i], (trail[i]), user_ball["radius"]) 
 
     # score and timer text
     text = font.render(f'Hits: {user_ball["hits"]}', True, "green", "black")
