@@ -5,10 +5,10 @@ import time
 
 # important ball variables
 WIDTH, HEIGHT = 800, 600
-BALL_RADIUS = 20
+BALL_RADIUS = 20 # radius of dodgeballs
 FPS = 60
 BLINK_TIME = 50 # how long the ball blinks for when hit
-MAX_HITS = 100
+MAX_HITS = 100 # how many hits before game over
 NEW_BALL_AT = 30 # after how many seconds is a new ball added
 
 print('\nwelcome to dodgeball! use the arrow keys or WASD to avoid the balls')
@@ -152,7 +152,7 @@ while True:
     trail = update_trail((user_ball["x"], user_ball["y"]), trail)
     trail_radius = update_trail(user_ball["radius"], trail_radius)
     for i in range(len(trail)):
-        pygame.draw.circle(screen, (150-i*10, 150-i*10, 150-i*10), (trail[i]), trail_radius[i])
+        pygame.draw.circle(screen, (140-i*10, 140-i*10, 140-i*10), (trail[i]), trail_radius[i])
 
     blink = ['1','2','3','4','5','6']
     # makes the dodgeballs
