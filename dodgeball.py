@@ -151,7 +151,7 @@ while True:
     # when the user loses
     if user_ball["hits"] == MAX_HITS:
         print('\ngame over!')
-        print(f'final time: {timetaken:.1f}\n')
+        print(f'final time: {timetaken:.2f}\n')
         pygame.quit()
         sys.exit()
 
