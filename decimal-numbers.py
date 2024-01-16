@@ -17,7 +17,7 @@ def to_binary(b):
     res = [] # stores the result as a list
     b = int(b) # converts input to int
 
-    for i in range(4): # loops 4 times and does the cute little algorithm i made
+    while b != 0: # loops and does the cute little algorithm i made
         x = b % 2
         b //= 2
         res.append(x)
