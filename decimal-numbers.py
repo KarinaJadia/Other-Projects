@@ -30,6 +30,12 @@ def to_binary(b):
     return result
 
 
+def to_hex(h):
+    ''' converts decimal to hexadecimal '''
+    res = []
+    h = int(h)
+
+
 stay = True
 while stay:
     where = input('Welcome to this! Are you converting a number to or from 4 bit/hexadecimal? [to] or [from]: ')
@@ -41,10 +47,9 @@ while stay:
             print(f'result: {to_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
-            pass
+            print(f'result: {to_hex(inp)}')
         else:
             print("Sorry, I don't know what you're saying.")
-            pass
 
     elif where == 'from':
         conversion = input('Excellent! Now are you converting from binary 4 bit or hexadecimal? [b] or [h]: ')
@@ -53,10 +58,8 @@ while stay:
             print(f'result: {from_binary(inp)}')
         elif conversion == 'h':
             inp = input('input number: ')
-            pass
         else:
             print("Sorry, I don't know what you're saying.")
-            pass
 
     else:
         print("Sorry, I don't know what you're saying.")
