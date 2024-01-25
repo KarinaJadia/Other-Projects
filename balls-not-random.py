@@ -46,11 +46,12 @@ while True:
 
     # update ball positions
     for ball in balls:
-        ball["color"][1] += ball["color_direction"]
+        ball["color"][1] += ball["color_direction"] 
         
         # reverse the direction when it reaches 0 or 255
         if ball["color"][1] == 0 or ball["color"][1] == 255:
             ball["color_direction"] *= -1
+        
         
         ball["y"] += ball["speed"][1]
 
