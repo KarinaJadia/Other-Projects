@@ -52,7 +52,6 @@ while True:
         if ball["color"][1] == 0 or ball["color"][1] == 255:
             ball["color_direction"] *= -1
         
-        
         ball["y"] += ball["speed"][1]
 
         # the bounce
