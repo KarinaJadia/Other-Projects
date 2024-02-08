@@ -1,33 +1,30 @@
 r = -1
 c = -1
-print('this code will solve an augmented matrix to reduced echelon form!')
+print('this code will solve an augmented matrix to reduced echelon form')
+print("also i do not have any try/catch statements so if you don't follow the input rules, it won't work!")
 
-
-def not_proper_size(x, a, b):
-    # this will be used to make sure values are proper
-    if x < a or x > b:
-        print(f'please enter a number between {a} and {b}')
-    return x < a or x > b
-
-def print_matrix(m):
+def print_matrix(m): # makes printing the matrix prettier
     for r in range(len(m)):
         for c in range(len(m[0])):
             print(f'{m[r][c]}', end=' ')
-        print('\n')
+        print('')
+    print('')
 
+# takes rows and columns
+r_c = input('enter rows and columns as ints separated by a space (example: 3 4): ').split()
+r_c = [int(i) for i in r_c]
+r, c = r_c[0], r_c[1]
 
-while not_proper_size(r, 0, 5): # makes sure that the inputs are proper type and size
-    try:
-        r = int(input('rows (between 1 and 5): '))
-    except:
-        valueError: print('please enter an integer')
-
-while not_proper_size(c, 0, 5): # makes sure that the inputs are proper type and size
-    try:
-        c = int(input('columns (between 1 and 5): '))
-    except:
-        valueError: print('please enter an integer')
-
+# augmented matrix initialized
 m = [['*']*c]*r
 
+# populates augmented matrix
+for i in range(r):
+    line = input(f'enter {c} numbers for row {i+1} separated by spaces: ').split()
+    if len(line) != c:
+        while len(line) != c:
+            line = input(f'please enter {c} numbers: ').split()
+    m[i] = [int(x) for x in line]
+
+print('\nyour augmented matrix:')
 print_matrix(m)
