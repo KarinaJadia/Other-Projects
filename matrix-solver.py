@@ -10,6 +10,12 @@ def print_matrix(m): # makes printing the matrix prettier
         print('')
     print('')
 
+def list_yank(m, c): # creates a list of all elements in column c
+    lis = []
+    for i in range(len(m)):
+        lis.append(m[i][c])
+    return lis
+
 # takes rows and columns
 r_c = input('enter rows and columns as ints separated by a space (example: 3 4): ').split()
 r_c = [int(i) for i in r_c]
@@ -28,3 +34,11 @@ for i in range(r):
 
 print('\nyour augmented matrix:')
 print_matrix(m)
+
+to_do = 0 # this keeps track of which column to go to
+level = 0 # this keeps track of which row we're on for pivots
+
+while to_do < c:
+    pivot = m[level][to_do]
+    col = list_yank(m, to_do)
+    to_do += 1
