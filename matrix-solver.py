@@ -49,25 +49,20 @@ while to_do < c and level < r:
         if i == level: # don't touch the pivot level
             pass
         else: # math
-            # print('pivot ', pivot)
             multiple = -e/pivot # value to multiply pivot row by to get 0
-            # print('multiple ',multiple)
             x = m[i] # row being multiplied
-            # print('row to convert ',x)
             m[i] = [m[level][z] * multiple + x[z] for z in range(c)]
-            # print(f'final row done: {m[i]}\n')
-    # print('')
-    # print_matrix(m)
     to_do += 1
     level += 1
-    
-next = 0
+
+# this whole loop makes all the pivots 1 since i couldn't do it in the main loop for some reason
+next = 0 # basically makes sure it only does this once per row even if there are multiple nonzero values
 for i in range(len(m)):
     x = m[i]
     for j in x:
         if j != 0 and next == 0:
             next = 1
-            z = [x[k]/j for k in range(len(m[0]))]
+            z = [x[k]/j for k in range(len(m[0]))] # divide the whole row by the leading entry
             m[i] = z
     next = 0
 
