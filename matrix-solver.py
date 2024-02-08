@@ -39,21 +39,37 @@ to_do = 0 # this keeps track of which column to go to
 level = 0 # this keeps track of which row we're on for pivots
 
 while to_do < c and level < r:
-    pivot = m[level][to_do]
-    col = list_yank(m, to_do)
+    pivot = m[level][to_do] # this is the pivot
+    if pivot == 0:
+        while pivot == 0:
+            level += 1
+            pivot = m[level][to_do] # this is the pivot
+    col = list_yank(m, to_do) # yanks the column of the pivot
     for i, e in enumerate(col):
-        if i == level:
+        if i == level: # don't touch the pivot level
             pass
-        else:
-            multiple = -e/pivot
-            print('pivot ', pivot)
-            print('multiple ',multiple)
-            x = m[i]
-            print('row to convert ',x)
+        else: # math
+            # print('pivot ', pivot)
+            multiple = -e/pivot # value to multiply pivot row by to get 0
+            # print('multiple ',multiple)
+            x = m[i] # row being multiplied
+            # print('row to convert ',x)
             m[i] = [m[level][z] * multiple + x[z] for z in range(c)]
-            print(f'final row done: {m[i]}')
-    
-    print('')
-    print_matrix(m)
+            # print(f'final row done: {m[i]}\n')
+    # print('')
+    # print_matrix(m)
     to_do += 1
     level += 1
+    
+next = 0
+for i in range(len(m)):
+    x = m[i]
+    for j in x:
+        if j != 0 and next == 0:
+            next = 1
+            z = [x[k]/j for k in range(len(m[0]))]
+            m[i] = z
+    next = 0
+
+print('completed matrix:')
+print_matrix(m)
