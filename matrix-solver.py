@@ -18,6 +18,10 @@ def list_yank(m, c): # creates a list of all elements in column c
 
 # takes rows and columns
 r_c = input('enter rows and columns as ints separated by a space (example: 3 4): ').split()
+if len(r_c) != 2:
+    while len(r_c) != 2:
+        r_c = input('please only enter two numbers: ').split()
+
 r_c = [int(i) for i in r_c]
 r, c = r_c[0], r_c[1]
 
