@@ -6,7 +6,7 @@ print("also i do not have any try/catch statements so if you don't follow the in
 def print_matrix(m): # makes printing the matrix prettier
     for r in range(len(m)):
         for c in range(len(m[0])):
-            print(f'{m[r][c]:.1f}', end=' ')
+            print(f'{m[r][c]:.1f}', end='  ')
         print('')
     print('')
 
