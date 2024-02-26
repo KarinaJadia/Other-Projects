@@ -65,7 +65,11 @@ class parentheses_cleared:
 
 class analyzer:
     def __init__(self, exp):
-        self.exp = exp
+        # to fix a bug
+        if ')' in exp:
+            self.exp = exp
+        else:
+            self.exp = '(' + exp + ')'
     
     # solves all parentheses
     def first(self):
@@ -135,11 +139,18 @@ class analyzer:
         if '-' in self.exp:
             while '-' in self.exp:
                 self.fifth()
-        print(self.exp)
+    
+    def solve(self):
+        self.analyze()
+        result = str(self.exp[0])
+        if result[-2:] == '.0':
+            print(result[:-2])
+        else:
+            print(result)
 
 def main():
     x = input("Enter the expression (no blank, no decimals): ")
     operation = analyzer(x)
-    operation.analyze()
+    operation.solve()
 
 main()
