@@ -63,6 +63,7 @@ class parentheses_cleared:
             self.parentheses()
         return self.parsed
 
+# the main math one
 class analyzer:
     def __init__(self, exp):
         # to fix a bug
