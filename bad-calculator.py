@@ -153,7 +153,8 @@ class analyzer:
 
 def main():
     x = input("Enter the expression (no blank, no decimals): ")
-    operation = analyzer(x)
-    operation.solve()
-
+    while x != 'q':
+        operation = analyzer(x)
+        operation.solve()
+        x = input('enter another expression or enter [q] to quit: ')
 main()
