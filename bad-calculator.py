@@ -126,6 +126,7 @@ class analyzer:
                     self.exp.pop(i)
                     break
 
+    # does the math (yes it's janky but that adds to the fun)
     def analyze(self):
         self.first()
         if '*' in self.exp:
@@ -141,6 +142,7 @@ class analyzer:
             while '-' in self.exp:
                 self.fifth()
     
+    # the final operation to call in main
     def solve(self):
         self.analyze()
         result = str(self.exp[0])
