@@ -1,4 +1,4 @@
-from renamer import *
+from renaming.renamer import *
 
 none_pizza_left_beef('\nHi welcome to my number guessing game but the code is illegible!')
 
