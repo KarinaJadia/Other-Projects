@@ -25,3 +25,5 @@ hangman.py - Very similar to hangman where it makes the user guess a word letter
 decimal-numbers.py - Takes user input and either converts to or from binary or hexadecimal depending on which they select, using my little algorithm. Uses lists and a little math.
 
 bad-calculator.py - As the name implies, it is a really janky calculator. I had to make a calculator using classes to model composition, aggregation, and inheritance so I made this. It does get the right answer when the inputs are perfect, but if you try to trick it with inoperable inputs it will just break. Does work when used correctly though, which is nice.
+
+gfc.py - Finds the greatest common factor. It's not very efficient but it helps with my homework!
