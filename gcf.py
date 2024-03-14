@@ -1,5 +1,6 @@
 print('enter 0 to quit')
 ints = input('enter numbers, separated by a space (only works for integers): ')
+
 while not ints == '0':
     ints = ints.split() # splits it
     ints = [int((int(i)**2)**(1/2)) for i in ints] # converts them to absolute value ints

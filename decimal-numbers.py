@@ -38,28 +38,14 @@ def to_hex(h):
 
 stay = True
 while stay:
-    where = input('Welcome to this! Are you converting a number to or from 4 bit/hexadecimal? [to] or [from]: ')
+    where = input('Welcome to this! Are you converting a number to or from 4 bit? [to] or [from]: ')
 
     if where == 'to':
-        conversion = input('Excellent! Now are you converting to binary 4 bit or hexadecimal? [b] or [h]: ')
-        if conversion == 'b':
-            inp = input('input number (between 0-15): ')
-            print(f'result: {to_binary(inp)}')
-        elif conversion == 'h':
-            inp = input('input number: ')
-            print(f'result: {to_hex(inp)}')
-        else:
-            print("Sorry, I don't know what you're saying.")
-
+        inp = input('input number (between 0-15): ')
+        print(f'result: {to_binary(inp)}')
     elif where == 'from':
-        conversion = input('Excellent! Now are you converting from binary 4 bit or hexadecimal? [b] or [h]: ')
-        if conversion == 'b':
-            inp = input('input number: ')
-            print(f'result: {from_binary(inp)}')
-        elif conversion == 'h':
-            inp = input('input number: ')
-        else:
-            print("Sorry, I don't know what you're saying.")
+        inp = input('input number: ')
+        print(f'result: {from_binary(inp)}')
 
     else:
         print("Sorry, I don't know what you're saying.")
