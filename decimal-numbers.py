@@ -38,10 +38,10 @@ def to_hex(h):
 
 stay = True
 while stay:
-    where = input('Welcome to this! Are you converting a number to or from 4 bit? [to] or [from]: ')
+    where = input('Welcome to this! Are you converting a number to or from binary? [to] or [from]: ')
 
     if where == 'to':
-        inp = input('input number (between 0-15): ')
+        inp = input('input number: ')
         print(f'result: {to_binary(inp)}')
     elif where == 'from':
         inp = input('input number: ')
