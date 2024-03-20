@@ -15,9 +15,8 @@ def from_binary(b):
 def to_binary(b):
     ''' converts decimal to binary '''
     res = [] # stores the result as a list
-    b = int(b) # converts input to int
 
-    while b != 0: # loops and does the cute little algorithm i made
+    while b != 0: # loops and does the cute little algorithm
         x = b % 2
         b //= 2
         res.append(x)
@@ -30,28 +29,16 @@ def to_binary(b):
     return result
 
 
-def to_hex(h):
-    ''' converts decimal to hexadecimal '''
-    res = []
-    h = int(h)
-
-
-stay = True
-while stay:
-    where = input('Welcome to this! Are you converting a number to or from binary? [to] or [from]: ')
-
-    if where == 'to':
-        inp = input('input number: ')
-        print(f'result: {to_binary(inp)}')
-    elif where == 'from':
-        inp = input('input number: ')
-        print(f'result: {from_binary(inp)}')
+print('how to use - type tb [number] to convert number to binary or td [number] to convert number to decimal')
+stri = input('input: ').split()
+while stri[0] != '0':
+    
+    if stri[0] == 'tb':
+        print(f'result: {to_binary(int(stri[1]))}')
+    elif stri[0] == 'td':
+        print(f'result: {from_binary(stri[1])}')
 
     else:
         print("Sorry, I don't know what you're saying.")
 
-    stay = input('Would you like to try again? [y] or [n]: ')
-    if stay == 'y':
-        stay = True
-    else:
-        stay = False
+    stri = input('enter 0 to quit or enter input to calculate next number: ').split()
