@@ -30,9 +30,10 @@ def to_binary(b):
 
 
 print('how to use - type tb [number] to convert number to binary or td [number] to convert number to decimal')
+print('enter 0 at any point to quit')
 stri = input('input: ').split()
 while stri[0] != '0':
-    
+
     if stri[0] == 'tb':
         print(f'result: {to_binary(int(stri[1]))}')
     elif stri[0] == 'td':
@@ -41,4 +42,4 @@ while stri[0] != '0':
     else:
         print("Sorry, I don't know what you're saying.")
 
-    stri = input('enter 0 to quit or enter input to calculate next number: ').split()
+    stri = input('input: ').split()
