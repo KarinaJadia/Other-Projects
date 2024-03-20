@@ -1,5 +1,8 @@
 def from_binary(b):
     ''' converts binary to decimal '''
+    if '2' in b or '3' in b or '4' in b or '5' in b or '6' in b or '7' in b or '8' in b or '9' in b: # i'm sure there's a more efficient way to do this
+        return 'not a binary number'
+    
     num = [*b] # splits string into characters
     num.reverse() # reverses it so it's from lowest to highest and i can work with it better
 
