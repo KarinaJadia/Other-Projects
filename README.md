@@ -16,7 +16,7 @@ renaming:
 
     renamer.py & renamed.py - This is a silly little guessing game inspired by something I saw on Instagram. I just wanted to see how funny it would be to make a project using meme lingo, so for example instead of calling print() it calls none_pizza_left_beef().
 
-IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit recision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
+IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit precision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
 
 matrix-solver.py - Very simple program to solve an augmented matrix. Cannot handle any errors in inputs and not properly tested, but theoretically should be able to solve most augmented matrices.
 
@@ -27,3 +27,5 @@ decimal-numbers.py - Takes user input and either converts to or from binary or h
 bad-calculator.py - As the name implies, it is a really janky calculator. I had to make a calculator using classes to model composition, aggregation, and inheritance so I made this. It does get the right answer when the inputs are perfect, but if you try to trick it with inoperable inputs it will just break. Does work when used correctly though, which is nice.
 
 gfc.py - Finds the greatest common factor. It's not very efficient but it helps with my homework!
+
+mantissa-maker.py - Generates the first 23 binary bits of a decimal inputted (for floating point precision blah blah blah). This is just for homework help!
