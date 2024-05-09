@@ -10,7 +10,7 @@ FPS = 60
 BLINK_TIME = 50 # how long the ball blinks for when hit
 MAX_HITS = 80 # how many hits before game over
 NEW_BALL_AT = 15 # after how many seconds is a new ball added
-AMOUNT_OF_BALLS = 10
+AMOUNT_OF_BALLS = 10 # how many balls it starts with
 MIN_SPEED, MAX_SPEED = 1,5
 
 print('\nwelcome to dodgeball! use the arrow keys or WASD to avoid the balls')
