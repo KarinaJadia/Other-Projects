@@ -21,6 +21,9 @@ pos = -20
 colors = [[(105, 64, 70), (105, 80, 64), (105, 93, 64)], # stores the colors of the box
           [(64, 105, 89), (64, 102, 105), (64, 81, 105)],
           [(64, 64, 105), (87, 64, 105), (98, 64, 105)]]
+set_num = [[1, 2, 3], # stores which larger set it is in
+          [4, 5, 6],
+          [7, 8, 9]]
 
 for i in range(81):
     if i % 9 == 0:
@@ -33,7 +36,8 @@ for i in range(81):
         "text": '', # the text stored in it
         "active": False,
         "row": i // 9 + 1, # stores row (goes from 1 to 9)
-        "col": i % 9 + 1 # stores column (goes from 1 to 9)
+        "col": i % 9 + 1, # stores column (goes from 1 to 9)
+        "set": set_num[(i//9)//3][(i%9)//3]
     }
     boxes.append(box)
 
