@@ -4,9 +4,9 @@ import sys
 pygame.init()
 
 # constants
-WIDTH, HEIGHT = 800, 600
-SQUARE = 50
-SPACE = 60
+WIDTH, HEIGHT = 800, 600 # size of window
+SQUARE = 50 # size of boxes
+SPACE = 60 # space between boxes
 
 # window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -18,20 +18,22 @@ font = pygame.font.Font('freesansbold.ttf', 15)
 # input boxes
 boxes = []
 pos = -20
-colors = [(255, 156, 156), (255, 197, 156), (255, 235, 156),
-          (187, 255, 156), (156, 255, 210), (156, 245, 255),
-          (156, 191, 255), (171, 156, 255), (240, 156, 255)]
+colors = [[(105, 64, 70), (105, 80, 64), (105, 93, 64)], # stores the colors of the box
+          [(64, 105, 89), (64, 102, 105), (64, 81, 105)],
+          [(64, 64, 105), (87, 64, 105), (98, 64, 105)]]
+
 for i in range(81):
     if i % 9 == 0:
         pos += SPACE
     box = {
         "x": 80 + i % 9 * SPACE,
         "y": pos,
-        "passive color": (76, 153, 186),
-        "color": (76, 153, 186),
+        "passive color": colors[(i//9)//3][(i%9)//3], # this is the permanent color
+        "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
         "text": '', # the text stored in it
         "active": False,
-        "id": i
+        "row": i // 9 + 1, # stores row (goes from 1 to 9)
+        "col": i % 9 + 1 # stores column (goes from 1 to 9)
     }
     boxes.append(box)
 
@@ -44,10 +46,12 @@ while True:
             sys.exit()
         
         if event.type == pygame.MOUSEBUTTONDOWN:
+
+            # if a box is clicked
             for box in boxes:
                 if pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).collidepoint(event.pos): 
                     box['active'] = True
-                    box['color'] = 'lightskyblue3'
+                    box['color'] = (36, 36, 36)
                 else:
                     box['active'] = False
                     box['color'] = box['passive color']
@@ -57,7 +61,8 @@ while True:
 
             # if enter key is clicked
             if event.key == pygame.K_KP_ENTER:
-                pygame.draw.circle(screen, "red", (WIDTH-15, HEIGHT-15), 18)
+                pygame.quit()
+                sys.exit()
 
             # if backspace is clicked
             elif event.key == pygame.K_BACKSPACE:
@@ -69,7 +74,7 @@ while True:
             else:
                 for box in boxes:
                     if box['active'] == True:
-                        box['text'] += event.unicode  
+                        box['text'] += event.unicode
 
     # renders text
     text = font.render(f'hit enter to solve puzzle', True, "white", "black")
