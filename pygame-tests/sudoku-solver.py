@@ -60,7 +60,7 @@ while True:
         if event.type == pygame.KEYDOWN:
 
             # if enter key is clicked
-            if event.key == pygame.K_KP_ENTER:
+            if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                 pygame.quit()
                 sys.exit()
 
