@@ -1,5 +1,6 @@
 import pygame
 import sys
+from sudoku_class import box
 
 pygame.init()
 
@@ -28,18 +29,7 @@ set_num = [[1, 2, 3], # to make life easier
 for i in range(81):
     if i % 9 == 0:
         pos += SPACE
-    box = {
-        "x": 80 + i % 9 * SPACE,
-        "y": pos,
-        "passive color": colors[(i//9)//3][(i%9)//3], # this is the permanent color
-        "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
-        "active": False,
-        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, # i think it will make it easier to reference
-        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "", # stores the text (called with box[box['id]])
-        # i//9+1 is row (1-9) and i%9+1 is column (1-9)
-        "pos": i # the place of the box in the list 
-    }
-    boxes.append(box)
+    boxes.append(box(80 + i % 9 * SPACE, pos, colors[(i//9)//3][(i%9)//3], colors[(i//9)//3][(i%9)//3],set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, i))
 
 def solve():
 
@@ -127,32 +117,32 @@ while True:
 
             # if a box is clicked
             for box in boxes:
-                if pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).collidepoint(event.pos): 
-                    box['active'] = True
-                    box['color'] = (36, 36, 36)
+                if pygame.Rect(box.x, box.y, SQUARE, SQUARE).collidepoint(event.pos): 
+                    box.active = True
+                    box.color = (36, 36, 36)
                 else:
-                    box['active'] = False
-                    box['color'] = box['passive color']
+                    box.active = False
+                    box.color = box.passive_color
 
         # keys
         if event.type == pygame.KEYDOWN:
 
             # if enter key is clicked
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
-                solve()
-                print(boxes[0])
+                #solve()
+                print(boxes[0].x)
     
             # if backspace is clicked
             elif event.key == pygame.K_BACKSPACE:
                 for box in boxes:
-                    if box['active'] == True:
-                        box[box['id']] = box[box['id']][:-1]
+                    if box.active == True:
+                        box.text = box.text[:-1]
 
             # else update text
             else:
                 for box in boxes:
-                    if box['active'] == True:
-                        box[box['id']] += event.unicode
+                    if box.active == True:
+                        box.text += event.unicode
     # resets screen
     screen.fill((0, 0, 0))
 
@@ -164,10 +154,10 @@ while True:
     
     # create boxes
     for box in boxes:
-        pygame.draw.rect(screen, box['color'], pygame.Rect(box['x'], box['y'], SQUARE, SQUARE))
-        text_surface = font.render(box[box['id']], True, (255, 255, 255)) 
+        pygame.draw.rect(screen, box.color, pygame.Rect(box.x, box.y, SQUARE, SQUARE))
+        text_surface = font.render(box.text, True, (255, 255, 255)) 
         # render at position stated in arguments 
-        screen.blit(text_surface, (pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).x+20, pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).y+20))
+        screen.blit(text_surface, (pygame.Rect(box.x, box.y, SQUARE, SQUARE).x+20, pygame.Rect(box.x, box.y, SQUARE, SQUARE).y+20))
 
     pygame.display.update()
     clock.tick(60)
