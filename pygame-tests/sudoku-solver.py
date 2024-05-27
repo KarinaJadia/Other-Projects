@@ -35,17 +35,11 @@ for i in range(81):
         "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
         "active": False,
         "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, # i think it will make it easier to reference
-        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "" # stores the text (called with box[box['id]])
+        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "", # stores the text (called with box[box['id]])
         # i//9+1 is row (1-9) and i%9+1 is column (1-9)
+        "pos": i # the place of the box in the list
     }
     boxes.append(box)
-
-def single_solver(dic): # this is just for if there's one single unsolved box in the thing
-    if len(dic['possible']) == 1:
-        dic[dic['unsolved'][0]] = dic['possible'][0] # i'm so sorry to whoever has to read this
-        dic['possible'] = []
-        box[dic['unsolved'][0]] = str(dic[dic['unsolved'][0]]) # updates the unsolved box value
-    return dic
 
 def solve():
 
@@ -68,10 +62,10 @@ def solve():
         # each set dictionary will store the leftover possible solutions within the set and the unsolved boxes
         if box['id'] < 200:
             if box[box['id']] != '':
-                set1[box['id']] = int(box[box['id']])
                 set1['possible'].remove(int(box[box['id']]))
             else:
                 set1['unsolved'].append(box['id'])
+                set1[box['pos']] = 0
         elif box['id'] < 300:
             if box[box['id']] != '':
                 set2[box['id']] = int(box[box['id']])
@@ -120,8 +114,6 @@ def solve():
                 set9['possible'].remove(int(box[box['id']]))
             else:
                 set9['unsolved'].append(box['id'])
-    set1 = single_solver(set1)
-    print(boxes[0])
 
 # game
 while True:
