@@ -21,9 +21,9 @@ pos = -20
 colors = [[(105, 64, 70), (105, 80, 64), (105, 93, 64)], # stores the colors of the box
           [(64, 105, 89), (64, 102, 105), (64, 81, 105)],
           [(64, 64, 105), (87, 64, 105), (98, 64, 105)]]
-set_num = [[0, 1, 2], # to make life easier
-          [3, 4, 5],
-          [6, 7, 8]]
+set_num = [[1, 2, 3], # to make life easier
+          [4, 5, 6],
+          [7, 8, 9]]
 
 for i in range(81):
     if i % 9 == 0:
@@ -37,19 +37,19 @@ for i in range(81):
         "active": False,
         "row": i // 9 + 1, # stores row (goes from 1 to 9)
         "col": i % 9 + 1, # stores column (goes from 1 to 9)
-        "set": set_num[(i//9)//3][(i%9)//3], # which 'set' of boxes it is (goes from 0 to 8)
-        set_num[(i//9)//3][(i%9)//3]: [1,2,3,4,5,6,7,8,9] # all the possible solutions it could be
+        "set": set_num[(i//9)//3][(i%9)//3], # which 'set' of boxes it is (goes from 1 to 9)
+        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1
     }
     boxes.append(box)
 
 def solve():
     for box in boxes:
         if box['text'] != '':
-            box[box['set']].remove(int(box['text']))
+            pass
         else:
             box['passive color'] = (252, 186, 3)
             box['color'] = (252, 186, 3)
-        print(box[box['set']])
+        box['text'] = str(box['id'])
 
 # game
 while True:
