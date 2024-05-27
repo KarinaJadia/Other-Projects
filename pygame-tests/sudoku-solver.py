@@ -16,8 +16,8 @@ pygame.display.set_caption("Sudoku Solver")
 clock = pygame.time.Clock()
 font = pygame.font.Font('freesansbold.ttf', 15)
 
-# input boxes
-boxes = []
+# input boxes set up
+boxes = [] # stores all box objects
 pos = -20
 colors = [[(105, 64, 70), (105, 80, 64), (105, 93, 64)], # stores the colors of the box
           [(64, 105, 89), (64, 102, 105), (64, 81, 105)],
@@ -32,11 +32,15 @@ for i in range(81):
     boxes.append(box(80 + i % 9 * SPACE, pos, colors[(i//9)//3][(i%9)//3], colors[(i//9)//3][(i%9)//3],set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, i))
 
 def solve():
+    unsolved_pointers = []
     for box in boxes:
         if box.text == '':
+            unsolved_pointers.append(box.pointer)
             box.text = str(box.id)
             box.passive_color = (252, 186, 3)
             box.color = (252, 186, 3)
+
+    print(unsolved_pointers)
 
 # game
 while True:
@@ -63,6 +67,17 @@ while True:
             # if enter key is clicked
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                 solve()
+
+            # if tab key is clicked
+            elif event.key == pygame.K_TAB:
+                for box in boxes:
+                    if box.active == True:
+                        pointer = box.pointer + 1
+                        box.active = False
+                        boxes[pointer].active = True
+                        boxes[pointer].color = (36, 36, 36)
+                        box.color = box.passive_color
+                        break
     
             # if backspace is clicked
             elif event.key == pygame.K_BACKSPACE:
