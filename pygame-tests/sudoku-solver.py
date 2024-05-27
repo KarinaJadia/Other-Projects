@@ -35,21 +35,83 @@ for i in range(81):
         "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
         "text": '', # the text stored in it
         "active": False,
-        "row": i // 9 + 1, # stores row (goes from 1 to 9)
-        "col": i % 9 + 1, # stores column (goes from 1 to 9)
-        "set": set_num[(i//9)//3][(i%9)//3], # which 'set' of boxes it is (goes from 1 to 9)
-        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1
+        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1 # i think it will make it easier to reference
+        # i//9+1 is row (1-9) and i%9+1 is column (1-9)
     }
     boxes.append(box)
 
 def solve():
+    set1 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set2 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set3 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set4 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set5 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set6 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set7 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set8 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+    set9 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
     for box in boxes:
-        if box['text'] != '':
-            pass
-        else:
+        # fancy color changing
+        if box['text'] == '':
             box['passive color'] = (252, 186, 3)
             box['color'] = (252, 186, 3)
-        box['text'] = str(box['id'])
+
+        # each set dictionary will store the leftover possible solutions within the set and the unsolved boxes
+        if box['id'] < 200:
+            if box['text'] != '':
+                set1[box['id']] = int(box['text'])
+                set1['possible'].remove(int(box['text']))
+            else:
+                set1['unsolved'].append(box['id'])
+        elif box['id'] < 300:
+            if box['text'] != '':
+                set2[box['id']] = int(box['text'])
+                set2['possible'].remove(int(box['text']))
+            else:
+                set2['unsolved'].append(box['id'])
+        elif box['id'] < 400:
+            if box['text'] != '':
+                set3[box['id']] = int(box['text'])
+                set3['possible'].remove(int(box['text']))
+            else:
+                set3['unsolved'].append(box['id'])
+        elif box['id'] < 500:
+            if box['text'] != '':
+                set4[box['id']] = int(box['text'])
+                set4['possible'].remove(int(box['text']))
+            else:
+                set4['unsolved'].append(box['id'])
+        elif box['id'] < 600:
+            if box['text'] != '':
+                set5[box['id']] = int(box['text'])
+                set5['possible'].remove(int(box['text']))
+            else:
+                set5['unsolved'].append(box['id'])
+        elif box['id'] < 700:
+            if box['text'] != '':
+                set6[box['id']] = int(box['text'])
+                set6['possible'].remove(int(box['text']))
+            else:
+                set6['unsolved'].append(box['id'])
+        elif box['id'] < 800:
+            if box['text'] != '':
+                set7[box['id']] = int(box['text'])
+                set7['possible'].remove(int(box['text']))
+            else:
+                set7['unsolved'].append(box['id'])
+        elif box['id'] < 900:
+            if box['text'] != '':
+                set8[box['id']] = int(box['text'])
+                set8['possible'].remove(int(box['text']))
+            else:
+                set8['unsolved'].append(box['id'])
+        else:
+            if box['text'] != '':
+                set9[box['id']] = int(box['text'])
+                set9['possible'].remove(int(box['text']))
+            else:
+                set9['unsolved'].append(box['id'])
+    print(set1)
 
 # game
 while True:
