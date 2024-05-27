@@ -33,10 +33,9 @@ for i in range(81):
         "y": pos,
         "passive color": colors[(i//9)//3][(i%9)//3], # this is the permanent color
         "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
-        "text": '', # the text stored in it
         "active": False,
         "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, # i think it will make it easier to reference
-        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "" # don't even ask
+        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "" # stores the text (called with box[box['id]])
         # i//9+1 is row (1-9) and i%9+1 is column (1-9)
     }
     boxes.append(box)
@@ -45,11 +44,7 @@ def single_solver(dic): # this is just for if there's one single unsolved box in
     if len(dic['possible']) == 1:
         dic[dic['unsolved'][0]] = dic['possible'][0] # i'm so sorry to whoever has to read this
         dic['possible'] = []
-    for key in dic:
-        if key == 'posssible' or key == 'unsolved':
-            pass
-        else:
-
+        box[dic['unsolved'][0]] = str(dic[dic['unsolved'][0]]) # updates the unsolved box value
     return dic
 
 def solve():
@@ -66,75 +61,66 @@ def solve():
 
     for box in boxes:
         # fancy color changing
-        if box['text'] == '':
+        if box[box['id']] == '':
             box['passive color'] = (252, 186, 3)
             box['color'] = (252, 186, 3)
 
         # each set dictionary will store the leftover possible solutions within the set and the unsolved boxes
         if box['id'] < 200:
-            if box['text'] != '':
-                set1[box['id']] = int(box['text'])
-                set1['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set1[box['id']] = int(box[box['id']])
+                set1['possible'].remove(int(box[box['id']]))
             else:
                 set1['unsolved'].append(box['id'])
         elif box['id'] < 300:
-            if box['text'] != '':
-                set2[box['id']] = int(box['text'])
-                set2['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set2[box['id']] = int(box[box['id']])
+                set2['possible'].remove(int(box[box['id']]))
             else:
                 set2['unsolved'].append(box['id'])
         elif box['id'] < 400:
-            if box['text'] != '':
-                set3[box['id']] = int(box['text'])
-                set3['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set3[box['id']] = int(box[box['id']])
+                set3['possible'].remove(int(box[box['id']]))
             else:
                 set3['unsolved'].append(box['id'])
         elif box['id'] < 500:
-            if box['text'] != '':
-                set4[box['id']] = int(box['text'])
-                set4['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set4[box['id']] = int(box[box['id']])
+                set4['possible'].remove(int(box[box['id']]))
             else:
                 set4['unsolved'].append(box['id'])
         elif box['id'] < 600:
-            if box['text'] != '':
-                set5[box['id']] = int(box['text'])
-                set5['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set5[box['id']] = int(box[box['id']])
+                set5['possible'].remove(int(box[box['id']]))
             else:
                 set5['unsolved'].append(box['id'])
         elif box['id'] < 700:
-            if box['text'] != '':
-                set6[box['id']] = int(box['text'])
-                set6['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set6[box['id']] = int(box[box['id']])
+                set6['possible'].remove(int(box[box['id']]))
             else:
                 set6['unsolved'].append(box['id'])
         elif box['id'] < 800:
-            if box['text'] != '':
-                set7[box['id']] = int(box['text'])
-                set7['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set7[box['id']] = int(box[box['id']])
+                set7['possible'].remove(int(box[box['id']]))
             else:
                 set7['unsolved'].append(box['id'])
         elif box['id'] < 900:
-            if box['text'] != '':
-                set8[box['id']] = int(box['text'])
-                set8['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set8[box['id']] = int(box[box['id']])
+                set8['possible'].remove(int(box[box['id']]))
             else:
                 set8['unsolved'].append(box['id'])
         else:
-            if box['text'] != '':
-                set9[box['id']] = int(box['text'])
-                set9['possible'].remove(int(box['text']))
+            if box[box['id']] != '':
+                set9[box['id']] = int(box[box['id']])
+                set9['possible'].remove(int(box[box['id']]))
             else:
                 set9['unsolved'].append(box['id'])
-        print(box)
     set1 = single_solver(set1)
-    set2 = single_solver(set2)
-    set3 = single_solver(set3)
-    set4 = single_solver(set4)
-    set5 = single_solver(set5)
-    set6 = single_solver(set6)
-    set7 = single_solver(set7)
-    set8 = single_solver(set8)
-    set9 = single_solver(set9)
 
 # game
 while True:
@@ -161,20 +147,20 @@ while True:
             # if enter key is clicked
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                 solve()
-
+    
             # if backspace is clicked
             elif event.key == pygame.K_BACKSPACE:
                 for box in boxes:
                     if box['active'] == True:
-                        box['text'] = box['text'][:-1]
                         box[box['id']] = box[box['id']][:-1]
 
             # else update text
             else:
                 for box in boxes:
                     if box['active'] == True:
-                        box['text'] += event.unicode
                         box[box['id']] += event.unicode
+    # resets screen
+    screen.fill((0, 0, 0))
 
     # renders text
     text = font.render(f'hit enter to solve puzzle', True, "white", "black")
