@@ -68,7 +68,7 @@ while True:
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                 solve()
 
-            # if tab key is clicked
+            # if tab key is clicked, move to next box
             elif event.key == pygame.K_TAB:
                 for box in boxes:
                     if box.active == True:
