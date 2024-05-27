@@ -121,6 +121,7 @@ def solve():
             else:
                 set9['unsolved'].append(box['id'])
     set1 = single_solver(set1)
+    print(boxes[0])
 
 # game
 while True:
@@ -147,6 +148,7 @@ while True:
             # if enter key is clicked
             if event.key == pygame.K_KP_ENTER or event.key == pygame.K_RETURN:
                 solve()
+                print(boxes[0])
     
             # if backspace is clicked
             elif event.key == pygame.K_BACKSPACE:
