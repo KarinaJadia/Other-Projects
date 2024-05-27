@@ -37,7 +37,7 @@ for i in range(81):
         "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, # i think it will make it easier to reference
         set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "", # stores the text (called with box[box['id]])
         # i//9+1 is row (1-9) and i%9+1 is column (1-9)
-        "pos": i # the place of the box in the list
+        "pos": i # the place of the box in the list 
     }
     boxes.append(box)
 
