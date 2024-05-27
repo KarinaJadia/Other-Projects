@@ -6,6 +6,8 @@ pygame-tests:
 
     dodgeball.py - A continuation of balls-random.py where user controls a tiny red ball and tries to avoid the random bigger balls. I'm gonna try to make it with sprites later because currently the draw function is making this weird.
 
+    sudoku-solver.py - WIP, supposedly you give it a board and hit enter and it solves the board for you.
+
 speed-typing:
 
     speed-accuracy-typer.py - Gets the user to type words as fast as possible and calculates their speed and accuracy, using the Time module to track time. This is mostly matrix and number-crunching practice.
