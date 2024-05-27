@@ -35,12 +35,25 @@ for i in range(81):
         "color": colors[(i//9)//3][(i%9)//3], # this is so that it can have a 'clicked on' color
         "text": '', # the text stored in it
         "active": False,
-        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1 # i think it will make it easier to reference
+        "id": set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, # i think it will make it easier to reference
+        set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1: "" # don't even ask
         # i//9+1 is row (1-9) and i%9+1 is column (1-9)
     }
     boxes.append(box)
 
+def single_solver(dic): # this is just for if there's one single unsolved box in the thing
+    if len(dic['possible']) == 1:
+        dic[dic['unsolved'][0]] = dic['possible'][0] # i'm so sorry to whoever has to read this
+        dic['possible'] = []
+    for key in dic:
+        if key == 'posssible' or key == 'unsolved':
+            pass
+        else:
+
+    return dic
+
 def solve():
+
     set1 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
     set2 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
     set3 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
@@ -50,6 +63,7 @@ def solve():
     set7 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
     set8 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
     set9 = {'possible': [1,2,3,4,5,6,7,8,9],'unsolved': []}
+
     for box in boxes:
         # fancy color changing
         if box['text'] == '':
@@ -111,7 +125,16 @@ def solve():
                 set9['possible'].remove(int(box['text']))
             else:
                 set9['unsolved'].append(box['id'])
-    print(set1)
+        print(box)
+    set1 = single_solver(set1)
+    set2 = single_solver(set2)
+    set3 = single_solver(set3)
+    set4 = single_solver(set4)
+    set5 = single_solver(set5)
+    set6 = single_solver(set6)
+    set7 = single_solver(set7)
+    set8 = single_solver(set8)
+    set9 = single_solver(set9)
 
 # game
 while True:
@@ -144,12 +167,14 @@ while True:
                 for box in boxes:
                     if box['active'] == True:
                         box['text'] = box['text'][:-1]
+                        box[box['id']] = box[box['id']][:-1]
 
             # else update text
             else:
                 for box in boxes:
                     if box['active'] == True:
                         box['text'] += event.unicode
+                        box[box['id']] += event.unicode
 
     # renders text
     text = font.render(f'hit enter to solve puzzle', True, "white", "black")
@@ -160,7 +185,7 @@ while True:
     # create boxes
     for box in boxes:
         pygame.draw.rect(screen, box['color'], pygame.Rect(box['x'], box['y'], SQUARE, SQUARE))
-        text_surface = font.render(box['text'], True, (255, 255, 255)) 
+        text_surface = font.render(box[box['id']], True, (255, 255, 255)) 
         # render at position stated in arguments 
         screen.blit(text_surface, (pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).x+20, pygame.Rect(box['x'], box['y'], SQUARE, SQUARE).y+20))
 
