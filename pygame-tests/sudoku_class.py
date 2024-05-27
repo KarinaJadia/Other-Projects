@@ -6,5 +6,5 @@ class box:
         self.color = c
         self.active = False
         self.id = id
-        self.position = pos
+        self.pointer = pos
         self.text = ''
