@@ -1,5 +1,7 @@
 A collection of tiny Python projects. They are very simple and little and basically just tiny easy pet projects. Here's a quick summary:
 
+----------------------------------------------------------------------------------------------------------
+
 pygame-tests:
 
 balls-random.py & balls-not-random.py - Just some quick moving circle simulators for fun. Uses pygame, but I looked up so much stuff so it was a joint effort between the internet and I.
