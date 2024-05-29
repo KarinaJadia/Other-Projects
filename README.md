@@ -8,6 +8,7 @@ dodgeball.py - A continuation of balls-random.py where user controls a tiny red 
 
 sudoku-solver.py - WIP, supposedly you give it a board and hit enter and it solves the board for you.
 
+----------------------------------------------------------------------------------------------------------
 
 speed-typing:
 
@@ -15,11 +16,13 @@ speed-accuracy-typer.py - Gets the user to type words as fast as possible and ca
 
 speed-accuracy-typer-v2.py - Basically a more accurate version of the speed-accuracy-typer.py, but with more accurate results. It doesn't use the matrix as heavily and is literally only for fun.
 
+----------------------------------------------------------------------------------------------------------
 
 renaming:
 
 renamer.py & renamed.py - This is a silly little guessing game inspired by something I saw on Instagram. I just wanted to see how funny it would be to make a project using meme lingo, so for example instead of calling print() it calls none_pizza_left_beef().
 
+----------------------------------------------------------------------------------------------------------
 
 IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit precision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
 
