@@ -8,3 +8,7 @@ class box:
         self.id = id
         self.pointer = pos
         self.text = ''
+        self.solved = False
+    
+    def __str__(self): # print magic method
+        return f'box {self.id} ({self.pointer}) - solved status [{self.solved}]'

@@ -18,6 +18,16 @@ font = pygame.font.Font('freesansbold.ttf', 15)
 
 # input boxes set up
 boxes = [] # stores all box objects
+s1 = [] # s1-s9 is pointers for each set
+s2 = []
+s3 = []
+s4 = []
+s5 = []
+s6 = []
+s7 = []
+s8 = []
+s9 = []
+
 pos = -20
 colors = [[(105, 64, 70), (105, 80, 64), (105, 93, 64)], # stores the colors of the box
           [(64, 105, 89), (64, 102, 105), (64, 81, 105)],
@@ -30,6 +40,24 @@ for i in range(81):
     if i % 9 == 0:
         pos += SPACE
     boxes.append(box(80 + i % 9 * SPACE, pos, colors[(i//9)//3][(i%9)//3], colors[(i//9)//3][(i%9)//3],set_num[(i//9)//3][(i%9)//3]*100 + (i//9+1) * 10 + i%9+1, i))
+    if set_num[(i//9)//3][(i%9)//3] == 1:
+        s1.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 2:
+        s2.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 3:
+        s3.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 4:
+        s4.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 5:
+        s5.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 6:
+        s6.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 7:
+        s7.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 8:
+        s8.append(i)
+    elif set_num[(i//9)//3][(i%9)//3] == 9:
+        s9.append(i)
 
 def solve():
     unsolved_pointers = []
@@ -39,7 +67,9 @@ def solve():
             box.text = str(box.id)
             box.passive_color = (252, 186, 3)
             box.color = (252, 186, 3)
-
+        else:
+            box.solved = True
+        print(box)
     print(unsolved_pointers)
 
 # game
