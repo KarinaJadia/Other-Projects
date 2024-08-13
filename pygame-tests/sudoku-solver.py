@@ -69,7 +69,7 @@ def solve():
             box.color = (252, 186, 3)
         else:
             box.solved = True
-        print(box)
+            box.possibles = []
     print(unsolved_pointers)
 
 # game
