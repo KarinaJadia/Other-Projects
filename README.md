@@ -10,6 +10,8 @@ dodgeball.py - A continuation of balls-random.py where user controls a tiny red 
 
 sudoku-solver.py - WIP, supposedly you give it a board and hit enter and it solves the board for you.
 
+word2vec.py - WIP, it calls an API to calculate the word2vec score between two words.
+
 ----------------------------------------------------------------------------------------------------------
 
 speed-typing:
@@ -17,6 +19,12 @@ speed-typing:
 speed-accuracy-typer.py - Gets the user to type words as fast as possible and calculates their speed and accuracy, using the Time module to track time. This is mostly matrix and number-crunching practice.
 
 speed-accuracy-typer-v2.py - Basically a more accurate version of the speed-accuracy-typer.py, but with more accurate results. It doesn't use the matrix as heavily and is literally only for fun.
+
+----------------------------------------------------------------------------------------------------------
+
+spotify-data:
+
+reader.py - WIP, will decode the JSON files of all my Spotify data.
 
 ----------------------------------------------------------------------------------------------------------
 
