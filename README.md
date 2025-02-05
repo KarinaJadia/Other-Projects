@@ -47,3 +47,5 @@ bad-calculator.py - As the name implies, it is a really janky calculator. I had 
 gfc.py - Finds the greatest common factor. It's not very efficient but it helps with my homework!
 
 mantissa-maker.py - Generates the first 23 binary bits of a decimal inputted (for floating point precision blah blah blah). This is just for homework help!
+
+stars.py - Just makes a night sky, inspired by @tiny_star_field on Twitter.
