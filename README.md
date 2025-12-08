@@ -50,6 +50,8 @@ mantissa-maker.py - Generates the first 23 binary bits of a decimal inputted (fo
 
 matrix-solver.py - Row reduces a matrix to echelon form. Very messy and cannot handle edge cases because I just made it to deal with row reducing in my linear algebra class (#lazy).
 
+morse-code-translator.py - Translates input from morse code to alphabet.
+
 numberfy.py - Saw a challenge on Instagram and had to attempt it. Given a string like 'five thousand eighty three' converts to '5,083'.
 
 stars.py - Just makes a night sky, inspired by @tiny_star_field on Twitter.
