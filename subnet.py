@@ -32,8 +32,7 @@ def list_to_sub(b):
     return b[0] + '.' + b[1] + '.' + b[2] + '.' + b[3] + '/' + b[4]
 
 if __name__ == "__main__":
-    # r = input('input subnet: ') # 68.168.0.34/29
-    r = '68.168.0.34/29'
+    r = input('input subnet: ') # 68.168.0.34/29
 
     b = sub_to_list(r)
 
@@ -49,7 +48,7 @@ if __name__ == "__main__":
     for i in range(len(netmask)):
         netmask[i] = to_binary(int(netmask[i]))
 
-    netmask[-1] = netmask[-1] = '1' * (8 - host_bits) + '0' * host_bits
+    netmask[-1] = '1' * (8 - host_bits) + '0' * host_bits
     netmask = netmask[0] + '.' + netmask[1] + '.' + netmask[2] + '.' + netmask[3]
 
     print(f'original address: {r}')
