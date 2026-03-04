@@ -34,23 +34,23 @@ renamer.py & renamed.py - This is a silly little guessing game inspired by somet
 
 ----------------------------------------------------------------------------------------------------------
 
-IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit precision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty.
-
-matrix-solver.py - Very simple program to solve an augmented matrix. Cannot handle any errors in inputs and not properly tested, but theoretically should be able to solve most augmented matrices.
-
-hangman.py - Very similar to hangman where it makes the user guess a word letter by letter within a certain number of turns. The word(s) are randomly generated from a list of hardcoded words and this project is mostly while loop and list practice.
+bad-calculator.py - As the name implies, it is a really janky calculator. I had to make a calculator using classes to model composition, aggregation, and inheritance so I made this. It does get the right answer when the inputs are perfect, but if you try to trick it with inoperable inputs it will just break. Does work when used correctly though, which is nice.
 
 decimal-numbers.py - Takes user input and either converts to or from binary or hexadecimal depending on which they select, using my little algorithm. Uses lists and a little math.
 
-bad-calculator.py - As the name implies, it is a really janky calculator. I had to make a calculator using classes to model composition, aggregation, and inheritance so I made this. It does get the right answer when the inputs are perfect, but if you try to trick it with inoperable inputs it will just break. Does work when used correctly though, which is nice.
+first-letter-detangler.py - Takes a string input and returns the first letters of each sentence with punctuation preserved (written for House of Leaves!).
 
 gfc.py - Finds the greatest common factor. It's not very efficient but it helps with my homework!
 
+hangman.py - Very similar to hangman where it makes the user guess a word letter by letter within a certain number of turns. The word(s) are randomly generated from a list of hardcoded words and this project is mostly while loop and list practice.
+
+IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit precision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty
+
 mantissa-maker.py - Generates the first 23 binary bits of a decimal inputted (for floating point precision blah blah blah). This is just for homework help!
 
-matrix-solver.py - Row reduces a matrix to echelon form. Very messy and cannot handle edge cases because I just made it to deal with row reducing in my linear algebra class (#lazy).
+matrix-solver.py - Very simple program to solve an augmented matrix. Cannot handle any errors in inputs and not properly tested, but theoretically should be able to solve most augmented matrices.
 
-morse-code-translator.py - Translates input from morse code to alphabet.
+morse-code-translator.py - Translates input from morse code to alphabet (written for We Used to Live Here!).
 
 numberfy.py - Saw a challenge on Instagram and had to attempt it. Given a string like 'five thousand eighty three' converts to '5,083'.
 
