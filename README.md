@@ -46,6 +46,8 @@ hangman.py - Very similar to hangman where it makes the user guess a word letter
 
 IEEE-32-bit-maker.py - Takes user input and converts it to IEEE 754 32-bit precision floating point format. Can only handle decimals and catches if user enters an int or "cheats" by entering an int disguised as a decimal (for example, 12.0). A lot of converting to string and float and int and back to make it work and look pretty
 
+kaprekar.py - Takes a four digit number and does Kaprekar's routine on it. All four digit numbers with Kaprekar's routine eventually become 6174 apparently.
+
 mantissa-maker.py - Generates the first 23 binary bits of a decimal inputted (for floating point precision blah blah blah). This is just for homework help!
 
 matrix-solver.py - Very simple program to solve an augmented matrix. Cannot handle any errors in inputs and not properly tested, but theoretically should be able to solve most augmented matrices.
