@@ -1,5 +1,7 @@
 import os
 import shutil
+import rawpy
+import imageio
 
 def copy_selected_files(source_dir, destination_dir, filenames):
     """
@@ -22,6 +24,31 @@ def copy_selected_files(source_dir, destination_dir, filenames):
         else:
             print(f"File not found: {filename}")
 
+def convert_arw_to_jpeg(folder_path, output_folder=None):
+    if output_folder is None:
+        output_folder = os.path.join(folder_path, "jpeg_output")
+
+    os.makedirs(output_folder, exist_ok=True)
+
+    for filename in os.listdir(folder_path):
+        if filename.lower().endswith(".arw"):
+            arw_path = os.path.join(folder_path, filename)
+            jpeg_filename = os.path.splitext(filename)[0] + ".jpg"
+            jpeg_path = os.path.join(output_folder, jpeg_filename)
+
+            try:
+                with rawpy.imread(arw_path) as raw:
+                    rgb = raw.postprocess(use_camera_wb=True, no_auto_bright=True, output_bps=8)
+                    imageio.imwrite(jpeg_path, rgb)
+
+                print(f"Converted: {filename} -> {jpeg_filename}")
+
+            except Exception as e:
+                print(f"Failed to convert {filename}: {e}")
+    
+    # usage in main:
+    # folder = r"E:\\grad pics"
+    # convert_arw_to_jpeg(folder)
 
 if __name__ == "__main__":
     source_directory = r"D:\\UConn grad"
