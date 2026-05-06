@@ -54,6 +54,8 @@ matrix-solver.py - Very simple program to solve an augmented matrix. Cannot hand
 
 morse-code-translator.py - Translates input from morse code to alphabet (written for We Used to Live Here!).
 
+move_files.py - Copies specified files from source to destination directory. Wrote it to move my grad pics from one USB to another!
+
 numberfy.py - Saw a challenge on Instagram and had to attempt it. Given a string like 'five thousand eighty three' converts to '5,083'.
 
 stars.py - Just makes a night sky, inspired by @tiny_star_field on Twitter.
